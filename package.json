@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "api:start": "yarn --cwd packages/api start",
+    "api:dev": "yarn --cwd packages/api dev",
+    "api:lint": "yarn --cwd packages/api lint",
+    "web:start": "yarn --cwd packages/web start",
+    "web:build": "yarn --cwd packages/web build",
+    "web:lint": "yarn --cwd packages/web lint",
+    "lint": "yarn api:lint && yarn web:lint",
+    "prettier": "prettier --write .",
+    "dependencies": "yarn upgrade-interactive --latest"
+  }
+}

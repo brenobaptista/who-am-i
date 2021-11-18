@@ -1,0 +1,21 @@
+{
+  "name": "@who-am-i/api",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "lint": "eslint --fix src"
+  },
+  "dependencies": {
+    "socket.io": "^4.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  }
+}

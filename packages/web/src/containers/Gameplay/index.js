@@ -11,7 +11,7 @@ const Gameplay = () => {
   useEffect(() => {
     socket.on('users', users => {
       users.forEach(user => {
-        const isSelf = user.userID === socket.id
+        const isSelf = user.userId === socket.id
 
         user.self = isSelf
       })
@@ -38,7 +38,7 @@ const Gameplay = () => {
         <ul>
           {users.map(user => (
             <li
-              key={user.userID}
+              key={user.userId}
               className={user.self ? styles.self : undefined}
             >
               {user.username}

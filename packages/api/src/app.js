@@ -24,7 +24,7 @@ io.on('connection', socket => {
 
   for (let [id, socket] of io.of('/').sockets) {
     users.push({
-      userID: id,
+      userId: id,
       username: socket.username
     })
   }
@@ -32,7 +32,7 @@ io.on('connection', socket => {
   socket.emit('users', users)
 
   socket.broadcast.emit('user connected', {
-    userID: socket.id,
+    userId: socket.id,
     username: socket.username
   })
 })

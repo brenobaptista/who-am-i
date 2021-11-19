@@ -16,16 +16,7 @@ const Gameplay = () => {
         user.self = isSelf
       })
 
-      const sortedUsers = users.sort((a, b) => {
-        if (a.self) return -1
-        if (b.self) return 1
-
-        if (a.username < b.username) return -1
-
-        return a.username > b.username ? 1 : 0
-      })
-
-      setUsers(sortedUsers)
+      setUsers(users)
     })
 
     socket.on('user connected', user => {
@@ -43,12 +34,17 @@ const Gameplay = () => {
       <div>
         <h1 className={styles.title}>
           <span>Gameplay</span>
-          <ul>
-            {users.map(user => (
-              <li key={user.userId}>{user.username}</li>
-            ))}
-          </ul>
         </h1>
+        <ul>
+          {users.map(user => (
+            <li
+              key={user.userID}
+              className={user.self ? styles.self : undefined}
+            >
+              {user.username}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )

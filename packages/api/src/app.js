@@ -20,9 +20,19 @@ io.use((socket, next) => {
 })
 
 io.on('connection', socket => {
-  console.log(`user ${socket.id} connected`)
+  const users = []
 
-  socket.on('disconnect', () => {
-    console.log(`user ${socket.id} disconnected`)
+  for (let [id, socket] of io.of('/').sockets) {
+    users.push({
+      userID: id,
+      username: socket.username
+    })
+  }
+
+  socket.emit('users', users)
+
+  socket.broadcast.emit('user connected', {
+    userID: socket.id,
+    username: socket.username
   })
 })

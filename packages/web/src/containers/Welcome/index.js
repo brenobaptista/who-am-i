@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import styles from './index.module.css'
 import { SocketContext } from '../../contexts/socket'
 
-const Welcome = ({ setUsernameAlreadySelected }) => {
+const Welcome = ({ setHasUsernameBeenSelected }) => {
   const socket = useContext(SocketContext)
 
   const [username, setUsername] = useState('')
@@ -11,7 +11,7 @@ const Welcome = ({ setUsernameAlreadySelected }) => {
   const handleUsername = event => {
     event.preventDefault()
 
-    setUsernameAlreadySelected(true)
+    setHasUsernameBeenSelected(true)
 
     socket.auth = { username }
 

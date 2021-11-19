@@ -18,13 +18,3 @@
   padding: 0 24px;
   animation: roll-right 1s;
 }
-
-.title {
-  margin: 16px 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.self {
-  font-weight: bold;
-}

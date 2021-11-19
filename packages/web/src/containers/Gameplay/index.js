@@ -10,13 +10,15 @@ const Gameplay = () => {
 
   useEffect(() => {
     socket.on('users', users => {
-      users.forEach(user => {
+      const modifiedUsers = [...users]
+
+      modifiedUsers.forEach(user => {
         const isSelf = user.userId === socket.id
 
         user.self = isSelf
       })
 
-      setUsers(users)
+      setUsers(modifiedUsers)
     })
 
     socket.on('user connected', user => {

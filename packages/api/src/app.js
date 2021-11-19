@@ -35,4 +35,8 @@ io.on('connection', socket => {
     userId: socket.id,
     username: socket.username
   })
+
+  socket.on('disconnect', () => {
+    socket.broadcast.emit('user disconnected', socket.id)
+  })
 })

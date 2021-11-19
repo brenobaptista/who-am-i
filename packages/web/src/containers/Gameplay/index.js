@@ -23,9 +23,16 @@ const Gameplay = () => {
       setUsers(previousState => [...previousState, user])
     })
 
+    socket.on('user disconnected', id => {
+      setUsers(previousState =>
+        previousState.filter(user => user.userId !== id)
+      )
+    })
+
     return () => {
       socket.off('users')
       socket.off('user connected')
+      socket.off('user disconnected')
     }
   }, [])
 

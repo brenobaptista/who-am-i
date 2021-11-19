@@ -2,11 +2,13 @@ import { useState } from 'react'
 
 import styles from './index.module.css'
 
-const Character = () => {
+const Character = ({ setHasCharacterBeenSelected }) => {
   const [character, setCharacter] = useState('')
 
   const handleCharacter = event => {
     event.preventDefault()
+
+    setHasCharacterBeenSelected(true)
   }
 
   return (

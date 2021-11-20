@@ -40,9 +40,7 @@ const Players = () => {
 
   return (
     <>
-      <h1 className={styles.title}>
-        <span>Players</span>
-      </h1>
+      <div className={styles.title}>Players</div>
       <ul>
         {users.map(user => (
           <li key={user.userId} className={user.self ? styles.self : undefined}>

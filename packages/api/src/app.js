@@ -11,23 +11,23 @@ const io = socketIO(8080, {
 middlewares(io)
 
 io.on('connection', socket => {
-  const users = []
+  const players = []
 
   for (let [id, socket] of io.of('/').sockets) {
-    users.push({
-      userId: id,
-      username: socket.username
+    players.push({
+      id,
+      nickname: socket.nickname
     })
   }
 
-  socket.emit('users', users)
+  socket.emit('players', players)
 
-  socket.broadcast.emit('user connected', {
-    userId: socket.id,
-    username: socket.username
+  socket.broadcast.emit('player connected', {
+    id: socket.id,
+    nickname: socket.nickname
   })
 
   socket.on('disconnect', () => {
-    socket.broadcast.emit('user disconnected', socket.id)
+    socket.broadcast.emit('player disconnected', socket.id)
   })
 })

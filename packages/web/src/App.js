@@ -5,12 +5,12 @@ import Welcome from './containers/Welcome'
 import { socket, SocketContext } from './contexts/socket'
 
 const App = () => {
-  const [hasUsernameBeenSelected, setHasUsernameBeenSelected] = useState(false)
+  const [hasNicknameBeenSelected, setHasNicknameBeenSelected] = useState(false)
 
   useEffect(() => {
     socket.on('connect_error', err => {
-      if (err.message === 'invalid username') {
-        setHasUsernameBeenSelected(false)
+      if (err.message === 'invalid nickname') {
+        setHasNicknameBeenSelected(false)
       }
     })
 
@@ -21,10 +21,10 @@ const App = () => {
 
   return (
     <SocketContext.Provider value={socket}>
-      {hasUsernameBeenSelected ? (
+      {hasNicknameBeenSelected ? (
         <Gameplay />
       ) : (
-        <Welcome setHasUsernameBeenSelected={setHasUsernameBeenSelected} />
+        <Welcome setHasNicknameBeenSelected={setHasNicknameBeenSelected} />
       )}
     </SocketContext.Provider>
   )

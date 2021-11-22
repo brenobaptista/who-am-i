@@ -6,35 +6,35 @@ import { SocketContext } from '../../contexts/socket'
 const Players = () => {
   const socket = useContext(SocketContext)
 
-  const [users, setUsers] = useState([])
+  const [players, setPlayers] = useState([])
 
   useEffect(() => {
-    socket.on('users', users => {
-      const modifiedUsers = [...users]
+    socket.on('players', players => {
+      const modifiedPlayers = [...players]
 
-      modifiedUsers.forEach(user => {
-        const isSelf = user.userId === socket.id
+      modifiedPlayers.forEach(player => {
+        const isSelf = player.id === socket.id
 
-        user.self = isSelf
+        player.self = isSelf
       })
 
-      setUsers(modifiedUsers)
+      setPlayers(modifiedPlayers)
     })
 
-    socket.on('user connected', user => {
-      setUsers(previousState => [...previousState, user])
+    socket.on('player connected', player => {
+      setPlayers(previousState => [...previousState, player])
     })
 
-    socket.on('user disconnected', id => {
-      setUsers(previousState =>
-        previousState.filter(user => user.userId !== id)
+    socket.on('player disconnected', id => {
+      setPlayers(previousState =>
+        previousState.filter(player => player.id !== id)
       )
     })
 
     return () => {
-      socket.off('users')
-      socket.off('user connected')
-      socket.off('user disconnected')
+      socket.off('players')
+      socket.off('player connected')
+      socket.off('player disconnected')
     }
   }, [])
 
@@ -42,9 +42,9 @@ const Players = () => {
     <>
       <div className={styles.title}>Players</div>
       <ul>
-        {users.map(user => (
-          <li key={user.userId} className={user.self ? styles.self : undefined}>
-            {user.username}
+        {players.map(player => (
+          <li key={player.id} className={player.self ? styles.self : undefined}>
+            {player.nickname}
           </li>
         ))}
       </ul>

@@ -1,5 +1,7 @@
 import { Server } from 'socket.io'
 
+import middlewares from './middlewares/index.js'
+
 const io = new Server(8080, {
   cors: {
     origin: 'http://localhost:3000',
@@ -7,17 +9,7 @@ const io = new Server(8080, {
   }
 })
 
-io.use((socket, next) => {
-  const { username } = socket.handshake.auth
-
-  if (!username) {
-    return next(new Error('invalid username'))
-  }
-
-  socket.username = username
-
-  next()
-})
+middlewares(io)
 
 io.on('connection', socket => {
   const users = []

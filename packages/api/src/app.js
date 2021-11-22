@@ -1,8 +1,7 @@
-import { Server } from 'socket.io'
-
+import socketIO from './loaders/socket-io.js'
 import middlewares from './middlewares/index.js'
 
-const io = new Server(8080, {
+const io = socketIO(8080, {
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST']

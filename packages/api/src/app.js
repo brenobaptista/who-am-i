@@ -1,7 +1,7 @@
-import socketIO from './loaders/socket-io.js'
+import socketIOServer from './loaders/socket.io-server.js'
 import middlewares from './middlewares/index.js'
 
-const io = socketIO(8080, {
+const io = socketIOServer(8080, {
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST']

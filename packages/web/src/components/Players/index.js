@@ -50,13 +50,14 @@ const Players = () => {
   return (
     <>
       <div className={styles.title}>Players</div>
-      <ul>
-        {players.map(player => (
-          <li key={player.id} className={player.self ? styles.self : undefined}>
-            {player.nickname} {player.ready && '- Ready'}
-          </li>
-        ))}
-      </ul>
+      {players.map(player => (
+        <div key={player.id} className={player.self ? styles.self : undefined}>
+          <label>
+            <input type='checkbox' checked={player.ready} />
+            <span>{player.nickname}</span>
+          </label>
+        </div>
+      ))}
     </>
   )
 }

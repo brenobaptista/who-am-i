@@ -25,6 +25,14 @@ const Players = () => {
       setPlayers(previousState => [...previousState, player])
     })
 
+    socket.on('player ready', id => {
+      setPlayers(previousState =>
+        previousState.map(player =>
+          player.id === id ? { ...player, ready: true } : { ...player }
+        )
+      )
+    })
+
     socket.on('player disconnected', id => {
       setPlayers(previousState =>
         previousState.filter(player => player.id !== id)
@@ -34,6 +42,7 @@ const Players = () => {
     return () => {
       socket.off('players')
       socket.off('player connected')
+      socket.off('player ready')
       socket.off('player disconnected')
     }
   }, [])
@@ -44,7 +53,7 @@ const Players = () => {
       <ul>
         {players.map(player => (
           <li key={player.id} className={player.self ? styles.self : undefined}>
-            {player.nickname}
+            {player.nickname} {player.ready && '- Ready'}
           </li>
         ))}
       </ul>

@@ -1,6 +1,6 @@
 html {
-  background-color: #282a36;
-  color: #eaeaea;
+  background-color: #0d1117;
+  color: #f0f6fc;
 }
 
 body {
@@ -17,35 +17,36 @@ code {
     monospace;
 }
 
-ul {
-  padding-inline-start: 20px;
-}
-
 button {
   font-family: inherit;
+  font-weight: 500;
   padding: 4px 8px;
-  border: none;
+  border: 1px solid #0075ff;
   border-radius: 2px;
-  background-color: #bd93f9;
-  color: #282a36;
+  background-color: #0075ff;
+  color: #f0f6fc;
   float: right;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #8466ae;
+  background-color: #005cc8;
 }
 
 input[type='text'] {
   width: 160px;
   font-family: inherit;
   padding: 4px 8px;
-  border: none;
+  border: 1px solid #f0f6fc;
   border-radius: 2px;
-  background-color: #44475a;
-  color: #ffffff;
+  background-color: #0d1117;
+  color: #f0f6fc;
 }
 
 input[type='text']::placeholder {
-  color: #aaaaaa;
+  color: #7a7b7d;
+}
+
+input[type='checkbox'] {
+  margin-right: 8px;
 }

@@ -1,6 +1,6 @@
 html {
-  background-color: #0d1117;
-  color: #f0f6fc;
+  background-color: #292b2f;
+  color: #dcddde;
 }
 
 body {
@@ -24,7 +24,7 @@ button {
   border: 1px solid #0075ff;
   border-radius: 2px;
   background-color: #0075ff;
-  color: #f0f6fc;
+  color: #ffffff;
   float: right;
   cursor: pointer;
 }
@@ -37,14 +37,14 @@ input[type='text'] {
   width: 160px;
   font-family: inherit;
   padding: 4px 8px;
-  border: 1px solid #f0f6fc;
+  border: 1px solid #dcddde;
   border-radius: 2px;
-  background-color: #0d1117;
-  color: #f0f6fc;
+  background-color: #2f3136;
+  color: #dcddde;
 }
 
 input[type='text']::placeholder {
-  color: #7a7b7d;
+  color: #72767d;
 }
 
 input[type='checkbox'] {

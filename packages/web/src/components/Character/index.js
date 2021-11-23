@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import styles from './index.module.css'
+import { SocketContext } from '../../contexts/socket'
 
 const Character = () => {
+  const socket = useContext(SocketContext)
+
   const [character, setCharacter] = useState('')
   const [hasCharacterBeenSelected, setHasCharacterBeenSelected] =
     useState(false)
@@ -11,6 +14,8 @@ const Character = () => {
     event.preventDefault()
 
     setHasCharacterBeenSelected(true)
+
+    socket.emit('player ready', character)
   }
 
   return (

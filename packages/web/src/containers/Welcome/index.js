@@ -28,11 +28,8 @@ const Welcome = ({ setHasNicknameBeenChosen }) => {
           placeholder='John Doe'
           value={nickname}
           onChange={event => setNickname(event.target.value)}
-          className={styles.input}
         />
-        <button type='submit' className={styles.button}>
-          Enter →
-        </button>
+        <button type='submit'>Enter →</button>
       </form>
     </div>
   )

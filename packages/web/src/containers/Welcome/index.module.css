@@ -24,32 +24,3 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
-
-.input {
-  width: 160px;
-  font-family: inherit;
-  padding: 4px 8px;
-  border: none;
-  border-radius: 2px;
-  background-color: #44475a;
-  color: #ffffff;
-}
-
-.input::placeholder {
-  color: #aaaaaa;
-}
-
-.button {
-  font-family: inherit;
-  padding: 4px 8px;
-  border: none;
-  border-radius: 2px;
-  background-color: #bd93f9;
-  color: #282a36;
-  float: right;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #8466ae;
-}

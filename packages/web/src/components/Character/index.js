@@ -32,11 +32,8 @@ const Character = () => {
             placeholder='Albert Einstein'
             value={character}
             onChange={event => setCharacter(event.target.value)}
-            className={styles.input}
           />
-          <button type='submit' className={styles.button}>
-            Play
-          </button>
+          <button type='submit'>Play</button>
         </form>
       )}
     </>

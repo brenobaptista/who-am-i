@@ -10,12 +10,12 @@ const Players = () => {
 
   useEffect(() => {
     socket.on('players', players => {
-      const modifiedPlayers = [...players]
-
-      modifiedPlayers.forEach(player => {
+      const modifiedPlayers = players.map(player => {
         const isSelf = player.id === socket.id
 
-        player.self = isSelf
+        const modifiedPlayer = { ...player, self: isSelf }
+
+        return modifiedPlayer
       })
 
       setPlayers(modifiedPlayers)

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import Gameplay from './containers/Gameplay'
+import Selection from './containers/Selection'
 import Welcome from './containers/Welcome'
 import { socket, SocketContext } from './contexts/socket'
 
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <SocketContext.Provider value={socket}>
       {hasNicknameBeenChosen ? (
-        <Gameplay />
+        <Selection />
       ) : (
         <Welcome setHasNicknameBeenChosen={setHasNicknameBeenChosen} />
       )}

@@ -29,7 +29,9 @@ const Welcome = ({ setHasNicknameBeenChosen }) => {
           value={nickname}
           onChange={event => setNickname(event.target.value)}
         />
-        <button type='submit'>Enter</button>
+        <button type='submit' className={styles.button}>
+          Enter
+        </button>
       </form>
     </div>
   )

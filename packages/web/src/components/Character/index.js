@@ -33,7 +33,9 @@ const Character = () => {
             value={character}
             onChange={event => setCharacter(event.target.value)}
           />
-          <button type='submit'>Play</button>
+          <button type='submit' className={styles.button}>
+            Play
+          </button>
         </form>
       )}
     </>

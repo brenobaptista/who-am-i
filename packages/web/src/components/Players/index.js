@@ -53,7 +53,7 @@ const Players = () => {
       {players.map(player => (
         <div key={player.id} className={player.self ? styles.self : undefined}>
           <label>
-            <input type='checkbox' checked={player.ready} />
+            <input type='checkbox' checked={player.ready} readOnly />
             <span>{player.nickname}</span>
           </label>
         </div>

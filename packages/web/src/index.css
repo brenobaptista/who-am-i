@@ -31,6 +31,7 @@ button {
 
 button:hover {
   background-color: #005cc8;
+  border: 1px solid #005cc8;
 }
 
 input[type='text'] {

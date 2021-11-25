@@ -1,3 +1,8 @@
+import {
+  shouldStartGame,
+  shufflePlayersAndCharacters
+} from '../services/gameplay.js'
+
 const events = io => {
   io.on('connection', socket => {
     const players = []

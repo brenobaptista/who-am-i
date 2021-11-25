@@ -36,6 +36,10 @@ const events = io => {
       }
     })
 
+    socket.on('game over', () => {
+      io.emit('game over', socket.id)
+    })
+
     socket.on('disconnect', () => {
       socket.broadcast.emit('player disconnected', socket.id)
 

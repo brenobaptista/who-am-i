@@ -2,7 +2,7 @@ import Players from '../../components/Players'
 import Character from '../../components/Character'
 import styles from './index.module.css'
 
-const Selection = () => (
+const Game = () => (
   <div className={styles.container}>
     <div>
       <Character />
@@ -11,4 +11,4 @@ const Selection = () => (
   </div>
 )
 
-export default Selection
+export default Game

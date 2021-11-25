@@ -22,11 +22,23 @@ const events = io => {
         socket.data.characterChosen = character
 
         io.emit('player ready', socket.id)
+
+        if (shouldStartGame(io)) {
+          const playersWithCharactersAssigned = shufflePlayersAndCharacters(io)
+
+          io.emit('start game', playersWithCharactersAssigned)
+        }
       }
     })
 
     socket.on('disconnect', () => {
       socket.broadcast.emit('player disconnected', socket.id)
+
+      if (shouldStartGame(io)) {
+        const playersWithCharactersAssigned = shufflePlayersAndCharacters(io)
+
+        io.emit('start game', playersWithCharactersAssigned)
+      }
     })
   })
 }

@@ -1,0 +1,17 @@
+.title {
+  margin: 16px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.lineThrough {
+  text-decoration: line-through;
+}
+
+.button {
+  margin-top: 24px;
+}

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 
-import Selection from './containers/Selection'
+import Game from './containers/Game'
 import Welcome from './containers/Welcome'
 import { socket, SocketContext } from './contexts/socket'
 
 const App = () => {
   const [hasNicknameBeenChosen, setHasNicknameBeenChosen] = useState(false)
+  const [participantPlayers, setParticipantPlayers] = useState([])
 
   useEffect(() => {
     socket.on('connect_error', err => {
@@ -14,15 +15,20 @@ const App = () => {
       }
     })
 
+    socket.on('start game', players => {
+      setParticipantPlayers(players)
+    })
+
     return () => {
       socket.off('connect_error')
+      socket.off('start game')
     }
   }, [])
 
   return (
     <SocketContext.Provider value={socket}>
       {hasNicknameBeenChosen ? (
-        <Selection />
+        <Game participantPlayers={participantPlayers} />
       ) : (
         <Welcome setHasNicknameBeenChosen={setHasNicknameBeenChosen} />
       )}

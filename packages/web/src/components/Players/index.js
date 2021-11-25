@@ -9,7 +9,7 @@ const Players = () => {
   const [players, setPlayers] = useState([])
 
   useEffect(() => {
-    socket.on('players', players => {
+    socket.on('players online', players => {
       const modifiedPlayers = players.map(player => {
         const isSelf = player.id === socket.id
 
@@ -40,7 +40,7 @@ const Players = () => {
     })
 
     return () => {
-      socket.off('players')
+      socket.off('players online')
       socket.off('player connected')
       socket.off('player ready')
       socket.off('player disconnected')

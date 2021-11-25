@@ -10,7 +10,7 @@ const events = io => {
       })
     }
 
-    socket.emit('players', players)
+    socket.emit('players online', players)
 
     socket.broadcast.emit('player connected', {
       id: socket.id,
